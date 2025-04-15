@@ -3,3 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 def index(req):
     return render(req, "menu/index.html")
+
+def new(req):
+    pass
