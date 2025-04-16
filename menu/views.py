@@ -11,10 +11,15 @@ def index(req):
             is_available=req.POST['is_available'] == 'True',
             is_spicy=req.POST['is_spicy'] == 'True',
         )
-        return redirect("menu:index")
+        return redirect("menu:show", id=menu.id)
     else:
-        return render(req, "menu/index.html")
+        menu = Menu.objects.order_by("-id")
+        return render(req, "menu/index.html", {"menu": menu})
 
 def new(req):
     return render(req, "menu/new.html")
+
+def show(req, id):
+    menu = Menu.objects.get(pk=id)
+    return render(req, "menu/show.html", {"menu": menu})
     

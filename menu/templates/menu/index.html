@@ -1,3 +1,19 @@
 <h1>菜單列表</h1>
 
 <a href="{% url 'menu:new' %}">新增菜單</a>
+
+<ul>
+{% for food in menu %}
+    <li>
+        <a href="{% url 'menu:show' food.id %}">
+            <section>
+                <h2>食物名稱: {{ food.name }}</h2>
+                <h3>價格: {{ food.price }}</h3>
+                <p>描述: {{ food.description }}</p>
+                <p>是否提供: {{ food.is_available }}</p>
+                <p>辣？ {{ food.is_spicy }}</p>
+            </section>
+        </a>
+    </li>
+{% endfor %}
+</ul>

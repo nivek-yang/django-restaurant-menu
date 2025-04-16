@@ -1,0 +1,8 @@
+<h1>商品: {{ menu.name }}</h1>
+<h1>價格: {{ menu.price }}</h1>
+<h1>描述: {{ menu.description }}</h1>
+<h1>是否提供: {{ menu.is_available }}</h1>
+<h1>辣？: {{ menu.is_spicy }}</h1>
+
+
+<a href="{% url 'menu:index' %}">返回商品列表</a>
