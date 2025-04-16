@@ -4,6 +4,6 @@ from . import views
 app_name = "menu"
 
 urlpatterns = [
-    path("", views.index, name = "index"),
-    path("", views.new, name = "new")
+    path("", views.index, name="index"),
+    path("new/", views.new, name="new"),
 ]
