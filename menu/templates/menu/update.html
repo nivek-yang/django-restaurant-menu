@@ -1,0 +1,33 @@
+<h1>修改商品：{{ menu.name }}</h1>
+
+
+
+<form action="{% url 'menu:index' %}" method="post">
+    {% csrf_token %}
+    <div>
+        <label for="name">菜名</label>
+        <input name="name" type="text" value="{{ menu.name }}">
+    </div>
+    <div>
+        <label for="price">價格</label>
+        <input name="price" type="number" value="{{ menu.price }}">
+    </div>
+    <div>
+        <label for="description">描述</label>
+        <textarea name="description" id="">{{ menu.description }}</textarea>
+    </div>
+    <div>
+        <label for="is_available">有無提供</label>
+        <input type="radio" name="is_available" value="True" checked> 有
+        <input type="radio" name="is_available" value="False"> 無
+    </div>
+    <div>
+        <label>辣？</label>
+        <input type="radio" name="is_spicy" value="True"> 是
+        <input type="radio" name="is_spicy" value="False" checked> 否
+    </div>
+    <div>
+        <a href="{% url 'menu:show' menu.id %}">返回上一頁</a>
+        <input type="submit" value="修改">
+    </div>
+</form>

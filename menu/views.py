@@ -22,4 +22,21 @@ def new(req):
 def show(req, id):
     menu = Menu.objects.get(pk=id)
     return render(req, "menu/show.html", {"menu": menu})
+
+def update(req, id):
+    if req.POST:
+        menu = Menu.objects.get(pk=id)
+        menu.name = req.POST['name']
+        menu.price = req.POST['price']
+        menu.description = req.POST['description']
+        menu.is_available = req.POST['is_available']
+        menu.is_spicy = req.POST['is_spicy']
+
+        menu.save()
+        
+        return redirect("menu:show", menu.id)
+        
+    else:
+        menu = Menu.objects.get(pk=id)
+        return render(req, "menu/update.html", {"menu": menu})
     
