@@ -2,7 +2,7 @@
 
 
 
-<form action="{% url 'menu:index' %}" method="post">
+<form action="{% url 'menu:index' %}" method="post" onsubmit="return confirm('確定要更新嗎？')">
     {% csrf_token %}
     <div>
         <label for="name">菜名</label>

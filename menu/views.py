@@ -39,4 +39,9 @@ def update(req, id):
     else:
         menu = Menu.objects.get(pk=id)
         return render(req, "menu/update.html", {"menu": menu})
-    
+
+def delete(req, id):
+    menu = Menu.objects.get(pk=id)
+    menu.delete()
+
+    return redirect("menu:index")
